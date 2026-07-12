@@ -213,7 +213,7 @@
     els.menuPanel.classList.remove("hidden");
 
     closeBtn.addEventListener("click", () => {
-      els.menuPanel.classList.add("hidden");
+      location.hash = buildDayHash(TRIP.days[state.dayIndex].date, state.tab);
     });
     nav.querySelectorAll(".menu-link").forEach((btn) => {
       btn.addEventListener("click", () => {

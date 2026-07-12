@@ -79,9 +79,12 @@ body {
   display: block;
 }
 
-.timeline-item .note {
+.note {
   color: #7a6249;
   font-size: 14px;
+}
+
+.timeline-item .note {
   white-space: pre-line;
 }
 
