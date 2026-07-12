@@ -12,7 +12,11 @@ const ASSETS = [
 ];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)));
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(ASSETS))
+      .catch((err) => console.error("Service worker install failed:", err))
+  );
   self.skipWaiting();
 });
 
@@ -33,11 +37,13 @@ self.addEventListener("fetch", (event) => {
         .then((response) => {
           if (response.ok) {
             const clone = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+            caches.open(CACHE_NAME)
+              .then((cache) => cache.put(event.request, clone))
+              .catch((err) => console.error("Cache put failed:", err));
           }
           return response;
         })
-        .catch(() => cached);
+        .catch(() => cached || new Response("Offline", { status: 503, statusText: "Offline" }));
     })
   );
 });
