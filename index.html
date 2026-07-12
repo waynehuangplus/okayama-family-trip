@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>岡山親子行</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="theme-color" content="#c9915d">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header id="app-header">
+  <button id="menu-btn" aria-label="選單">☰</button>
+  <div id="day-switcher">
+    <button id="prev-day" aria-label="前一天">‹</button>
+    <span id="day-title"></span>
+    <button id="next-day" aria-label="後一天">›</button>
+  </div>
+</header>
+
+<main id="app-main"></main>
+
+<nav id="tab-bar">
+  <button class="tab-btn" data-tab="today">今日</button>
+  <button class="tab-btn" data-tab="transport">交通</button>
+  <button class="tab-btn" data-tab="restaurants">餐廳</button>
+  <button class="tab-btn" data-tab="summary">總覽</button>
+</nav>
+
+<div id="menu-panel" class="hidden"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
